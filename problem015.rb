@@ -6,21 +6,13 @@
 # How many routes are there through a 2020 grid?
 
 def routes_for(grid_size)
-  result = 0
-  case grid_size
-  when 0 then result = 1
-  when 1 then result = 2
-  else
-    (0..(grid_size-1)).each{|i|result += 2 * routes_for(i)}
-  end
-  return result
+  choices = grid_size * 2
+  
+  factorial(choices) / (factorial(grid_size) * factorial(choices - grid_size))
 end
 
-sum = 0
-(2 ** 1000).to_s.each_char{|i| sum += i.to_i}
-puts sum
-
-
-# 1: 2
-# 2: (2 * (1:)) + 2 * (0:)
-# 3: (2 * (2:)) + 2 (1:) + 2 * (0:)
+def factorial(value)
+  result = 1
+  (1..value).each{|v| result *= v}
+  return result
+end
