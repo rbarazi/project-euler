@@ -16,3 +16,5 @@ def factorial(value)
   (1..value).each{|v| result *= v}
   return result
 end
+
+puts routes_for 20

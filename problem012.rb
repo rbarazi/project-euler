@@ -19,10 +19,8 @@
 def divisors(number)
   divs = []
   min = 1
-  max = number
+  max = (number ** 0.5).to_i
   while( min <= max )
-    tmp_max = (number / min) + (number % min)
-    max = tmp_max if tmp_max < max
     if ((number % min) == 0)
       divs << min
       divs << max unless max == min
